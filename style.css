@@ -1,0 +1,64 @@
+/* To Do List:
+
+style colors on numpad and operator box. make numbers one color (grey?), operators another (blue?), decimal, backspace, and AC another (orange?)
+style footer color/margin-top/etc
+style header color/margin-bottom/etc
+ */
+
+#display {
+  background-color: black;
+  color: green;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: right;
+  width: 100%;
+}
+
+#bodyBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ui {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+}
+
+.non-num {
+  background-color: orange;
+}
+
+.belowAllClear {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.numpad {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 75%;
+}
+
+.num {
+  width: 33%;
+}
+
+.operatorBox {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.arithmetic {
+  background-color: cyan;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+}
