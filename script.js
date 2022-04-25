@@ -72,3 +72,34 @@ function makeEqualsListener() {
     console.log("create an equals function and put it here")
   });
 }
+
+// Operator functions:
+
+function operate(operator, first, second) {
+  if (operator === "add") {
+    return addNums(first, second);
+  };
+  if (operator === "subtract") {
+    return subtractNums(first, second);
+  };
+  if (operator === "multiply") {
+    return multiplyNums(first, second);
+  };
+  if (operator === "divide") {
+    return divideNums(first, second);
+  };
+};
+function addNums(first, second) {
+  return first + second;
+}
+function subtractNums(first, second) {
+  return first - second;
+}
+function multiplyNums(first, second) {
+  return first * second;
+}
+function divideNums(first, second) {
+  return first / second;
+}
+// let result = operate("divide", 2, 4)
+// console.log(result);
