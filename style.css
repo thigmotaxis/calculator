@@ -24,6 +24,7 @@ style header color/margin-bottom/etc
   display: flex;
   flex-direction: column;
   width: 800px;
+  margin: 20px 0px;
 }
 
 .non-num {
@@ -53,7 +54,7 @@ style header color/margin-bottom/etc
   width: 25%;
 }
 
-.arithmetic {
+.operator {
   background-color: cyan;
 }
 

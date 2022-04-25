@@ -1,10 +1,10 @@
-<! DOCTYPE = html>
+<!DOCTYPE html>
 <html lang = "en">
-  <header>
-    <title>Oh, hey. Let's push some nums</title>
+  <head>
     <meta charset="utf-8">
+    <title>Oh, hey. Let's push some nums</title>
     <link rel="stylesheet" href="style.css">
-  </header>
+  </head>
 
   <body>
     <div id = "bodyBox">
@@ -30,10 +30,11 @@
             <button class = "num non-num" id = "backspace">delete</button>
           </div>
           <div class = "operatorBox">
-            <button class = "arithmetic">+</button>
-            <button class = "arithmetic">-</button>
-            <button class = "arithmetic">*</button>
-            <button class = "arithmetic">/</button>
+            <button class = "operator">+</button>
+            <button class = "operator">-</button>
+            <button class = "operator">*</button>
+            <button class = "operator">/</button>
+            <button class = "operator">=</button>
           </div>
         </div>
       </div>
@@ -45,7 +46,11 @@
   </body>
 
 <!-- To do list:
-determine desired functions
-determine needed HTML elements
-determine (sketch out?) what UI should look like
+write overall pseudocode:
+clicking number buttons or decimal should add that character to a string
+  - I will need event listeners on each button to register clicks and run an addToString function which appends to displayElement.textContent
+    - it may also be helpful to store this string in another variable that is passed into operator functions because displayElement.textContent will change
+clicking an operator should add that string to an array and pass it into that operator's function (e.g. *, /, etc.)
+write operator functions
+
  -->
