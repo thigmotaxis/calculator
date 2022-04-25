@@ -1,17 +1,16 @@
 /* To Do List:
-
-style colors on numpad and operator box. make numbers one color (grey?), operators another (blue?), decimal, backspace, and AC another (orange?)
 style footer color/margin-top/etc
 style header color/margin-bottom/etc
  */
 
 #display {
   background-color: black;
-  color: green;
+  color: white;
   font-size: 18px;
   font-weight: bold;
   text-align: right;
   width: 100%;
+  height: 30px;
 }
 
 #bodyBox {
@@ -45,6 +44,10 @@ style header color/margin-bottom/etc
 }
 
 .num {
+  width: 33%;
+}
+
+#backspace {
   width: 33%;
 }
 
