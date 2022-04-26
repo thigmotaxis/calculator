@@ -1,4 +1,11 @@
 // event listeners
+
+let calculation = {
+  first: "",
+  second: "",
+  operator: "",
+};
+
 makeEventListeners()
 
 function makeEventListeners() {
@@ -6,7 +13,8 @@ function makeEventListeners() {
   makeNumListeners()
   makeDelListener()
   makeAllClearListener()
-  makeOperatorListeners()
+  makeOperatorListener()
+  makeEqualsListener()
 };
 
 // create event listeners for each num button/decimal that appends that button's text content to the string shown in the display element
@@ -15,6 +23,15 @@ function makeNumListeners() {
   nums.forEach((num) => {
     num.addEventListener("click", () => {
       display.textContent += num.textContent;
+      if (calculation.operator === "") {
+        calculation.first = display.textContent;
+      } else {
+        display.textContent = num.textContent;
+        calculation.second += num.textContent;
+        display.textContent = calculation.second;
+
+      }
+      console.log(calculation)
     });
   });
 };
@@ -24,6 +41,14 @@ function makeDelListener() {
   const del = document.querySelector("#backspace");
   del.addEventListener("click", () => {
     display.textContent = display.textContent.slice(0, -1);
+    if (calculation.operator === "") {
+      calculation.first = display.textContent;
+      console.log(calculation)
+    } else {
+      calculation.second = display.textContent;
+      // display.textContent = calculation.second;
+      console.log(calculation)
+    };
   });
 };
 
@@ -31,66 +56,61 @@ function makeAllClearListener() {
   const allClear = document.querySelector("#allClear");
   allClear.addEventListener("click", () => {
     display.textContent = "";
+    calculation = {
+      first: "",
+      second: "",
+      operator: "",
+    };
+
   });
 };
 
-function makeOperatorListeners () {
-  makeAddListener()
-  makeSubtractListener()
-  makeMultiplyListener()
-  makeDivideListener()
-  makeEqualsListener()
+function makeOperatorListener() {
+  const operators = document.querySelectorAll(".operator");
+  operators.forEach((operatorButton) => {
+    operatorButton.addEventListener("click", () => {
+      calculation.operator = operatorButton.textContent;
+      console.log(calculation)
+    })
+  })
 }
-
-function makeAddListener() {
-  const add = document.querySelector("#add");
-  add.addEventListener("click", () => {
-    console.log("create an add function and put it here")
-  });
-};
-function makeSubtractListener() {
-  const subtract = document.querySelector("#subtract");
-  subtract.addEventListener("click", () => {
-    console.log("create a subtract function and put it here")
-  });
-}
-function makeMultiplyListener() {
-  const multiply = document.querySelector("#multiply");
-  multiply.addEventListener("click", () => {
-    console.log("create a multiply function and put it here")
-  });
-}
-function makeDivideListener() {
-  const divide = document.querySelector("#divide");
-  divide.addEventListener("click", () => {
-    console.log("create a divide function and put it here")
-  });
-}
+//
 function makeEqualsListener() {
   const equals = document.querySelector("#equals");
   equals.addEventListener("click", () => {
-    console.log("create an equals function and put it here")
-  });
+    resetObj();
+    });
 }
 
+function resetObj() {
+  let result = operate(calculation.operator, calculation.first, calculation.second)
+  display.textContent = result;
+  calculation = {
+  first: result,
+  second: "",
+  operator: "",
+};
+console.log(result)
+
+}
 // Operator functions:
 
 function operate(operator, first, second) {
-  if (operator === "add") {
+  if (operator === "+") {
     return addNums(first, second);
   };
-  if (operator === "subtract") {
+  if (operator === "-") {
     return subtractNums(first, second);
   };
-  if (operator === "multiply") {
+  if (operator === "*") {
     return multiplyNums(first, second);
   };
-  if (operator === "divide") {
+  if (operator === `/`) {
     return divideNums(first, second);
   };
 };
 function addNums(first, second) {
-  return first + second;
+  return parseInt(first) + parseInt(second);
 }
 function subtractNums(first, second) {
   return first - second;
@@ -99,7 +119,9 @@ function multiplyNums(first, second) {
   return first * second;
 }
 function divideNums(first, second) {
+  if (second === "0") {
+    alert("Oh, I think you know better than that");
+    return;
+  }
   return first / second;
 }
-// let result = operate("divide", 2, 4)
-// console.log(result);

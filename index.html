@@ -32,9 +32,9 @@
           <div class = "operatorBox">
             <button class = "operator" id = "add">+</button>
             <button class = "operator" id = "subtract">-</button>
-            <button class = "operator" id = "multiply">&times</button>
-            <button class = "operator" id = "divide">&divide</button>
-            <button class = "operator" id = "equals">=</button>
+            <button class = "operator" id = "multiply">*</button>
+            <button class = "operator" id = "divide">/</button>
+            <button id = "equals">=</button>
           </div>
         </div>
       </div>
@@ -46,11 +46,5 @@
   </body>
 
 <!-- To do list:
-write overall pseudocode:
-clicking number buttons or decimal should add that character to a string
-  - I will need event listeners on each button to register clicks and run an addToString function which appends to displayElement.textContent
-    - it may also be helpful to store this string in another variable that is passed into operator functions because displayElement.textContent will change
-clicking an operator should add that string to an array and pass it into that operator's function (e.g. *, /, etc.)
-write operator functions
 
  -->
