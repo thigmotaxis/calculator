@@ -24,10 +24,12 @@ function makeNumListeners() {
   const nums = document.querySelectorAll(".num");
   nums.forEach((num) => {
     num.addEventListener("click", () => {
-      display.textContent += num.textContent;
       if (calculation.operator === "") {
+        if (num.textContent === "." && calculation.first.includes(num.textContent)) {return}; // prevents double decimal
+        display.textContent += num.textContent;
         calculation.first = display.textContent;
       } else {
+        if (num.textContent === "." && calculation.second.includes(num.textContent)) {return}; // prevents double decimal
         display.textContent = num.textContent;
         calculation.second += num.textContent;
         display.textContent = calculation.second;
@@ -116,7 +118,7 @@ function operate(operator, first, second) {
   };
 };
 function addNums(first, second) {
-  return parseInt(first) + parseInt(second);
+  return parseFloat(first) + parseFloat(second);
 };
 function subtractNums(first, second) {
   return first - second;
