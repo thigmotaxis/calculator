@@ -36,8 +36,15 @@ style header color/margin-bottom/etc
   margin: 20px 0px;
 }
 
-.non-num {
+#removeBox {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.remove {
   background-color: orange;
+  width: 50%
 }
 
 .belowAllClear {
@@ -53,11 +60,7 @@ style header color/margin-bottom/etc
   width: 75%;
 }
 
-.num {
-  width: 33%;
-}
-
-#backspace {
+.num, #equals {
   width: 33%;
 }
 
@@ -67,7 +70,7 @@ style header color/margin-bottom/etc
   width: 25%;
 }
 
-.operator, #equals {
+.operator {
   background-color: cyan;
 }
 

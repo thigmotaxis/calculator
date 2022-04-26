@@ -14,7 +14,10 @@
       <div class = "ui">
         <div class = "display" id = "currentOperation"></div>
         <div class = "display" id = "display"></div>
-        <button class = "non-num" id = "allClear">AC</button>
+        <div id = "removeBox">
+          <button class = "remove" id = "backspace">Delete</button>
+          <button class = "remove" id = "allClear">AC</button>
+        </div>
         <div class = "belowAllClear">
           <div class = "numpad">
             <button class = "num" id = "1">1</button>
@@ -26,16 +29,15 @@
             <button class = "num" id = "7">7</button>
             <button class = "num" id = "8">8</button>
             <button class = "num" id = "9">9</button>
-            <button class = "num non-num" id = "decimal">.</button>
+            <button class = "num" id = "decimal">.</button>
             <button class = "num" id = "0">0</button>
-            <button class = "non-num" id = "backspace">delete</button>
+            <button id = "equals">=</button>
           </div>
           <div class = "operatorBox">
             <button class = "operator" id = "add">+</button>
             <button class = "operator" id = "subtract">-</button>
             <button class = "operator" id = "multiply">*</button>
             <button class = "operator" id = "divide">/</button>
-            <button id = "equals">=</button>
           </div>
         </div>
       </div>
@@ -52,6 +54,5 @@
   </body>
 
 <!-- To do list:
-create a "current operation display above display so users can see their input so far"
 add logic to operator button ELs that call operate before assigning their operators to the object if the object has all three properties
  -->
