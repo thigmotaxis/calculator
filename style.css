@@ -2,9 +2,24 @@
 style footer color/margin-top/etc
 style header color/margin-bottom/etc
  */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 10vh;
+}
+
+ #bodyBox {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: white;
+   height: 80vh;
+ }
 
 #currentOperation {
-  background-color: black;
+  background-color: #03071E;
   color: white;
   font-size: 12px;
   font-weight: bold;
@@ -14,7 +29,7 @@ style header color/margin-bottom/etc
 }
 
 #display {
-  background-color: black;
+  background-color: #03071E;
   color: white;
   font-size: 18px;
   font-weight: bold;
@@ -23,17 +38,14 @@ style header color/margin-bottom/etc
   height: 30px;
 }
 
-#bodyBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 .ui {
   display: flex;
   flex-direction: column;
-  width: 800px;
   margin: 20px 0px;
+  padding:20px;
+  background-color: red;
+  border-radius: 20px;
 }
 
 #removeBox {
@@ -43,8 +55,10 @@ style header color/margin-bottom/etc
 }
 
 .remove {
+  border: none;
+  outline: none;
   background-color: orange;
-  width: 50%
+  width: 50%;
 }
 
 .belowAllClear {
@@ -61,13 +75,18 @@ style header color/margin-bottom/etc
 }
 
 .num, #equals {
-  width: 33%;
+  width: 32%;
 }
 
 .operatorBox {
   display: flex;
   flex-direction: column;
   width: 25%;
+}
+
+.remove, .num, .operator, #equals {
+  padding: 8px;
+  margin: 2px;
 }
 
 .operator {
@@ -79,6 +98,7 @@ style header color/margin-bottom/etc
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  height: 5vh;
 }
 
 #logo, #attribution {
