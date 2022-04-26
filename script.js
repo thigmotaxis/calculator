@@ -73,6 +73,7 @@ function makeOperatorListener() {
   const operators = document.querySelectorAll(".operator");
   operators.forEach((operatorButton) => {
     operatorButton.addEventListener("click", () => {
+      if (calculation.first !== "" && calculation.second !== "" && calculation.operator !== "") {resetObj()};
       calculation.operator = operatorButton.textContent;
       currentOperation.textContent = `${calculation.first} ${calculation.operator} ${calculation.second}`;
       console.log(calculation)
@@ -116,17 +117,17 @@ function operate(operator, first, second) {
 };
 function addNums(first, second) {
   return parseInt(first) + parseInt(second);
-}
+};
 function subtractNums(first, second) {
   return first - second;
-}
+};
 function multiplyNums(first, second) {
   return first * second;
-}
+};
 function divideNums(first, second) {
   if (second === "0") {
     alert("Oh, I think you know better than that");
     return;
-  }
+  };
   return first / second;
-}
+};
