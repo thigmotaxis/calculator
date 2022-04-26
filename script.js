@@ -10,12 +10,14 @@ makeEventListeners()
 
 function makeEventListeners() {
   const display = document.querySelector("#display");
+  const currentOperation = document.querySelector("#currentOperation")
   makeNumListeners()
   makeDelListener()
   makeAllClearListener()
   makeOperatorListener()
   makeEqualsListener()
 };
+
 
 // create event listeners for each num button/decimal that appends that button's text content to the string shown in the display element
 function makeNumListeners() {
@@ -31,6 +33,7 @@ function makeNumListeners() {
         display.textContent = calculation.second;
 
       }
+      currentOperation.textContent = `${calculation.first} ${calculation.operator} ${calculation.second}`;
       console.log(calculation)
     });
   });
@@ -49,6 +52,7 @@ function makeDelListener() {
       // display.textContent = calculation.second;
       console.log(calculation)
     };
+    currentOperation.textContent = `${calculation.first} ${calculation.operator} ${calculation.second}`;
   });
 };
 
@@ -61,7 +65,7 @@ function makeAllClearListener() {
       second: "",
       operator: "",
     };
-
+  currentOperation.textContent = `${calculation.first} ${calculation.operator} ${calculation.second}`;
   });
 };
 
@@ -70,10 +74,11 @@ function makeOperatorListener() {
   operators.forEach((operatorButton) => {
     operatorButton.addEventListener("click", () => {
       calculation.operator = operatorButton.textContent;
+      currentOperation.textContent = `${calculation.first} ${calculation.operator} ${calculation.second}`;
       console.log(calculation)
-    })
-  })
-}
+    });
+  });
+};
 //
 function makeEqualsListener() {
   const equals = document.querySelector("#equals");

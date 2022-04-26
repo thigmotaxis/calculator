@@ -12,7 +12,8 @@
         <h1>Behold! A calculator!</h1>
       </div>
       <div class = "ui">
-        <div id = "display"></div>
+        <div class = "display" id = "currentOperation"></div>
+        <div class = "display" id = "display"></div>
         <button class = "non-num" id = "allClear">AC</button>
         <div class = "belowAllClear">
           <div class = "numpad">
@@ -41,10 +42,16 @@
     </div>
     <div class = "footer">
       <div id = "attribution">Abe made this</div>
+      <div id = "logo">
+        <a href = "https://github.com/thigmotaxis">
+          <img src = images/gitLogo.png alt = "a cute cat silhouette with a tentacle arm">
+        </a>
+      </div>
     </div>
     <script src="script.js"> defer</script>
   </body>
 
 <!-- To do list:
-
+create a "current operation display above display so users can see their input so far"
+add logic to operator button ELs that call operate before assigning their operators to the object if the object has all three properties
  -->
