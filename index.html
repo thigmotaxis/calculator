@@ -55,8 +55,13 @@
 
 <!-- To do list:
 add logic that prevents operator from being added to calculation before the first operand
+if calculation.first !== "", ok to add
 fix equals button so that it doesn't return undefined (conditional in resetObj()?)
+maybe the same fix as above? = only calls operate if all properties have values
 add rounding for numbers (but probably just to the display)
+prevent delete from removing characters from result?
+add a 4th property once an operator button has been pushed (operationPerformed: true?)
+then wrap delete in conditional: if 4th property not present, delete from first
 
 make it look prettier
 resize calculator body to a higher h:w ratio

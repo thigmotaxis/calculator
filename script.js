@@ -18,7 +18,6 @@ function makeEventListeners() {
   makeEqualsListener()
 };
 
-
 // create event listeners for each num button/decimal that appends that button's text content to the string shown in the display element
 function makeNumListeners() {
   const nums = document.querySelectorAll(".num");
@@ -35,7 +34,7 @@ function makeNumListeners() {
         display.textContent = calculation.second;
 
       }
-      currentOperation.textContent = `${calculation.first} ${calculation.operator} ${calculation.second}`;
+      updateCurrentOpDisplay()
       console.log(calculation)
     });
   });
@@ -46,7 +45,7 @@ function makeDelListener() {
   const del = document.querySelector("#backspace");
   del.addEventListener("click", () => {
     display.textContent = display.textContent.slice(0, -1);
-    if (calculation.operator === "") {
+    if (calculation.operator === "") {            // add extra condition checking for 4th property?
       calculation.first = display.textContent;
       console.log(calculation)
     } else {
@@ -54,7 +53,7 @@ function makeDelListener() {
       // display.textContent = calculation.second;
       console.log(calculation)
     };
-    currentOperation.textContent = `${calculation.first} ${calculation.operator} ${calculation.second}`;
+    updateCurrentOpDisplay()
   });
 };
 
@@ -67,7 +66,7 @@ function makeAllClearListener() {
       second: "",
       operator: "",
     };
-  currentOperation.textContent = `${calculation.first} ${calculation.operator} ${calculation.second}`;
+  updateCurrentOpDisplay()
   });
 };
 
@@ -77,7 +76,7 @@ function makeOperatorListener() {
     operatorButton.addEventListener("click", () => {
       if (calculation.first !== "" && calculation.second !== "" && calculation.operator !== "") {resetObj()};
       calculation.operator = operatorButton.textContent;
-      currentOperation.textContent = `${calculation.first} ${calculation.operator} ${calculation.second}`;
+      updateCurrentOpDisplay()
       console.log(calculation)
     });
   });
@@ -101,6 +100,11 @@ function resetObj() {
 console.log(result)
 
 }
+
+function updateCurrentOpDisplay () {
+  currentOperation.textContent = `${calculation.first} ${calculation.operator} ${calculation.second}`;
+}
+
 // Operator functions:
 
 function operate(operator, first, second) {
