@@ -7,10 +7,11 @@
   </head>
 
   <body>
+    <div class = "header">
+      <h1>Behold! A calculator!</h1>
+    </div>
+    <div class = "spacer"></div>
     <div id = "bodyBox">
-      <div class = "head">
-        <h1>Behold! A calculator!</h1>
-      </div>
       <div class = "ui">
         <div class = "display" id = "currentOperation"></div>
         <div class = "display" id = "display"></div>
@@ -52,19 +53,3 @@
     </div>
     <script src="script.js"> defer</script>
   </body>
-
-<!-- To do list:
-add logic that prevents operator from being added to calculation before the first operand
-if calculation.first !== "", ok to add
-fix equals button so that it doesn't return undefined (conditional in resetObj()?)
-maybe the same fix as above? = only calls operate if all properties have values
-add rounding for numbers (but probably just to the display)
-prevent delete from removing characters from result?
-add a 4th property once an operator button has been pushed (operationPerformed: true?)
-then wrap delete in conditional: if 4th property not present, delete from first
-
-make it look prettier
-resize calculator body to a higher h:w ratio
-add background color to header/footer/body
-
- -->

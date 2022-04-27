@@ -12,16 +12,16 @@ let operationPerformed = {
 // event listeners
 
 
-makeEventListeners()
+makeEventListeners();
 
 function makeEventListeners() {
   const display = document.querySelector("#display");
   const currentOperation = document.querySelector("#currentOperation")
-  makeNumListeners()
-  makeDelListener()
-  makeAllClearListener()
-  makeOperatorListener()
-  makeEqualsListener()
+  makeNumListeners();
+  makeDelListener();
+  makeAllClearListener();
+  makeOperatorListener();
+  makeEqualsListener();
 };
 
 // create event listeners for each num button/decimal that appends that button's text content to the string shown in the display element
@@ -42,9 +42,8 @@ function makeNumListeners() {
         calculation.second += num.textContent;
         display.textContent = calculation.second;
 
-      }
-      updateCurrentOpDisplay()
-      console.log(calculation)
+      };
+      updateCurrentOpDisplay();
     });
   });
 };
@@ -57,13 +56,11 @@ function makeDelListener() {
       if (operationPerformed.firstOperation === false) {return}  // prevents delete button from deleting result of an operation
       calculation.first = calculation.first.slice(0, -1);
       display.textContent = calculation.first;
-      console.log(calculation)
     } else {
       calculation.second = calculation.second.slice(0, -1)
       display.textContent = calculation.second;
-      console.log(calculation)
     };
-    updateCurrentOpDisplay()
+    updateCurrentOpDisplay();
   });
 };
 
@@ -79,7 +76,7 @@ function makeAllClearListener() {
     operationPerformed = {
       firstOperation: true,
     };
-  updateCurrentOpDisplay()
+  updateCurrentOpDisplay();
   });
 };
 
@@ -88,17 +85,15 @@ function makeOperatorListener() {
   operators.forEach((operatorButton) => {
     operatorButton.addEventListener("click", () => {
       if (calculation.first !== "" && calculation.second !== "" && calculation.operator !== "") {
-        resetObj()
+        resetObj();
       };
       if (calculation.first !== "") {
         calculation.operator = operatorButton.textContent;
-        updateCurrentOpDisplay()
+        updateCurrentOpDisplay();
       };
-      console.log(operationPerformed)
       operationPerformed = {
         firstOperation: false,
       };
-      console.log(calculation)
     });
   });
 };
@@ -111,8 +106,6 @@ function makeEqualsListener() {
       operationPerformed = {
         firstOperation: false,
       };
-      console.log(calculation)
-      console.log(operationPerformed)
     };
   });
 };
@@ -121,17 +114,15 @@ function resetObj() {
   let result = parseFloat(operate(calculation.operator, calculation.first, calculation.second).toFixed(4))  //rounds result
   display.textContent = result;
   calculation = {
-  first: result,
-  second: "",
-  operator: "",
+    first: result,
+    second: "",
+    operator: "",
+  };
 };
-console.log(result)
-
-}
 
 function updateCurrentOpDisplay () {
   currentOperation.textContent = `${calculation.first} ${calculation.operator} ${calculation.second}`;
-}
+};
 
 // Operator functions:
 

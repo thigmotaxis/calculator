@@ -1,7 +1,3 @@
-/* To Do List:
-style footer color/margin-top/etc
-style header color/margin-bottom/etc
- */
 .header {
   display: flex;
   flex-direction: column;
@@ -9,13 +5,17 @@ style header color/margin-bottom/etc
   height: 10vh;
 }
 
+.spacer {
+  height: 15vh;
+}
+
  #bodyBox {
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   justify-content: flex-start;
    align-items: center;
    background-color: white;
-   height: 80vh;
+   height: 65vh;
  }
 
 #currentOperation {
