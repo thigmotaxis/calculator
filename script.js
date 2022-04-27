@@ -1,10 +1,16 @@
-// event listeners
-
+// global objects
 let calculation = {
   first: "",
   second: "",
   operator: "",
 };
+
+let operationPerformed = {
+  firstOperation: true,
+};
+
+// event listeners
+
 
 makeEventListeners()
 
@@ -44,13 +50,16 @@ function makeNumListeners() {
 function makeDelListener() {
   const del = document.querySelector("#backspace");
   del.addEventListener("click", () => {
-    display.textContent = display.textContent.slice(0, -1);
-    if (calculation.operator === "") {            // add extra condition checking for 4th property?
-      calculation.first = display.textContent;
+    // if (operationPerformed.firstOperation === false) {return};
+    // display.textContent = display.textContent.slice(0, -1);
+    if (calculation.operator === "") {
+      if (operationPerformed.firstOperation === false) {return}  // prevents delete button from deleting result of an operation
+      calculation.first = calculation.first.slice(0, -1);
+      display.textContent = calculation.first;
       console.log(calculation)
     } else {
-      calculation.second = display.textContent;
-      // display.textContent = calculation.second;
+      calculation.second = calculation.second.slice(0, -1)
+      display.textContent = calculation.second;
       console.log(calculation)
     };
     updateCurrentOpDisplay()
@@ -66,6 +75,9 @@ function makeAllClearListener() {
       second: "",
       operator: "",
     };
+    operationPerformed = {
+      firstOperation: true,
+    };
   updateCurrentOpDisplay()
   });
 };
@@ -78,9 +90,13 @@ function makeOperatorListener() {
         resetObj()
       };
       if (calculation.first !== "") {
-      calculation.operator = operatorButton.textContent;
-      updateCurrentOpDisplay()
-      }
+        calculation.operator = operatorButton.textContent;
+        updateCurrentOpDisplay()
+      };
+      console.log(operationPerformed)
+      operationPerformed = {
+        firstOperation: false,
+      };
       console.log(calculation)
     });
   });
@@ -91,6 +107,11 @@ function makeEqualsListener() {
   equals.addEventListener("click", () => {
     if (calculation.first !== "" && calculation.second !== "" && calculation.operator !== ""){
       resetObj();
+      operationPerformed = {
+        firstOperation: false,
+      };
+      console.log(calculation)
+      console.log(operationPerformed)
     };
   });
 };
