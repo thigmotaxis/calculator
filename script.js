@@ -118,7 +118,7 @@ function makeEqualsListener() {
 };
 
 function resetObj() {
-  let result = operate(calculation.operator, calculation.first, calculation.second)
+  let result = parseFloat(operate(calculation.operator, calculation.first, calculation.second).toFixed(4))  //rounds result
   display.textContent = result;
   calculation = {
   first: result,
