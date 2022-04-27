@@ -89,9 +89,11 @@ function makeOperatorListener() {
 function makeEqualsListener() {
   const equals = document.querySelector("#equals");
   equals.addEventListener("click", () => {
-    resetObj();
-    });
-}
+    if (calculation.first !== "" && calculation.second !== "" && calculation.operator !== ""){
+      resetObj();
+    };
+  });
+};
 
 function resetObj() {
   let result = operate(calculation.operator, calculation.first, calculation.second)
