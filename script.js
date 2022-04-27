@@ -74,9 +74,13 @@ function makeOperatorListener() {
   const operators = document.querySelectorAll(".operator");
   operators.forEach((operatorButton) => {
     operatorButton.addEventListener("click", () => {
-      if (calculation.first !== "" && calculation.second !== "" && calculation.operator !== "") {resetObj()};
+      if (calculation.first !== "" && calculation.second !== "" && calculation.operator !== "") {
+        resetObj()
+      };
+      if (calculation.first !== "") {
       calculation.operator = operatorButton.textContent;
       updateCurrentOpDisplay()
+      }
       console.log(calculation)
     });
   });
