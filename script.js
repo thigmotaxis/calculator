@@ -31,10 +31,13 @@ function makeNumListeners() {
     num.addEventListener("click", () => {
       if (calculation.operator === "") {
         if (num.textContent === "." && calculation.first.includes(num.textContent)) {return}; // prevents double decimal
-        display.textContent += num.textContent;
-        calculation.first = display.textContent;
+        if (operationPerformed.firstOperation === true) {             // prevents user from adding numbers to a result
+          display.textContent += num.textContent;
+          calculation.first = display.textContent;
+        };
       } else {
         if (num.textContent === "." && calculation.second.includes(num.textContent)) {return}; // prevents double decimal
+
         display.textContent = num.textContent;
         calculation.second += num.textContent;
         display.textContent = calculation.second;
@@ -50,8 +53,6 @@ function makeNumListeners() {
 function makeDelListener() {
   const del = document.querySelector("#backspace");
   del.addEventListener("click", () => {
-    // if (operationPerformed.firstOperation === false) {return};
-    // display.textContent = display.textContent.slice(0, -1);
     if (calculation.operator === "") {
       if (operationPerformed.firstOperation === false) {return}  // prevents delete button from deleting result of an operation
       calculation.first = calculation.first.slice(0, -1);
